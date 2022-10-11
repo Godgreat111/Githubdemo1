@@ -1,0 +1,25 @@
+public class CaptureAllTheLinks {
+
+	public static void main(String[] args) {
+		
+WebDriverManager.chromedriver().setup();
+WebDriver driver= new ChromeDriver();
+
+driver.get("https://www.amazon.in/");
+		
+//how to capture all the links		
+	List<WebElement> links=driver.findElements(By.tagName("a"))	;
+	
+	System.out.println("total links present"+links.size());	
+	
+	for(WebElement el:links){
+		
+		System.out.println(el.getText());
+		
+		System.out.println(el.getAttribute("href"));
+	}
+			
+
+	}
+
+}
